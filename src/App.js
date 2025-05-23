@@ -178,47 +178,75 @@ const LoginPage = ({ onLogin }) => {
 
 const LandingPage = ({ onVerifyId, onLogout }) => {
   const statusClass = mockUserData.accountStatus.includes('locked') ? 'status locked' : 'status unlocked';
+     const [country, setCountry] = useState('United States');
+  const [language, setLanguage] = useState('English');
 
   return (
+     <><nav className="navbar">
+      <div className="navbar-left">
+        <img src={logo} alt="Logo" className="navbar-logo" />
+      </div>
+      <div className="navbar-right">
+        <select
+          className="navbar-select"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        >
+          <option value="United States">United States</option>
+          <option value="Canada">Canada</option>
+          <option value="United Kingdom">United Kingdom</option>
+        </select>
+
+        <select
+          className="navbar-select-lang"
+          value={language}
+          onChange={(e) => setLanguage(e.target.value)}
+        >
+          <option value="English">English</option>
+          <option value="Español">Español</option>
+        </select>
+      </div>
+    </nav><div className='Space'></div>
     <motion.div className="page" variants={pageVariants} initial="hidden" animate="visible" exit="exit">
-      <div>
-        <h2 className="heading" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Fingerprint size={20} /> Hi, {mockUserData.name}
-        </h2>
-        <p className="text-small">Your Account Overview</p>
-      </div>
 
-      <div className="section">
         <div>
-          <p className="section-info" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Banknote size={20} /> Balance
-          </p>
-          <p className="section-value">${mockUserData.balance.toLocaleString()}</p>
+          <h2 className="heading" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Fingerprint size={20} /> Hi, {mockUserData.name}
+          </h2>
+          <p className="text-small">Your Account Overview</p>
         </div>
-        <div>
-          <p className="section-info">Account No.</p>
-          <p>{mockUserData.accountNumber}</p>
-        </div>
-        <div>
-          <p className="section-info">Routing No.</p>
-          <p>{mockUserData.routingNumber}</p>
-        </div>
-        <div className={statusClass}>
-          {mockUserData.accountStatus.includes('locked') ? <Lock size={16} /> : <CheckCircle size={16} />}
-          {mockUserData.accountStatus}
-        </div>
-      </div>
 
-      <div className="section-three">
-        <button className="blue-button" onClick={onVerifyId}><CreditCard size={16} /> Cards</button>
-        <button className="blue-button" onClick={onVerifyId}><PercentCircle size={16} /> Rates</button>
-        <button className="button" onClick={onVerifyId}>Verify ID</button>
-      </div>
+        <div className="section">
+          <div>
+            <p className="section-info" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Banknote size={20} /> Balance
+            </p>
+            <p className="section-value">${mockUserData.balance.toLocaleString()}</p>
+          </div>
+          <div>
+            <p className="section-info">Account No.</p>
+            <p>{mockUserData.accountNumber}</p>
+          </div>
+          <div>
+            <p className="section-info">Routing No.</p>
+            <p>{mockUserData.routingNumber}</p>
+          </div>
+          <div className={statusClass}>
+            {mockUserData.accountStatus.includes('locked') ? <Lock size={16} /> : <CheckCircle size={16} />}
+            {mockUserData.accountStatus}
+          </div>
+        </div>
 
-      <button className="logout-button" onClick={onLogout}>
-        <LogOut size={16} /> Logout
-      </button>
-    </motion.div>
+        <div className="section-three">
+          <button className="blue-button" onClick={onVerifyId}><CreditCard size={16} /> Cards</button>
+          <button className="blue-button" onClick={onVerifyId}><PercentCircle size={16} /> Rates</button>
+          <button className="button" onClick={onVerifyId}>Verify ID</button>
+        </div>
+
+        <button className="logout-button" onClick={onLogout}>
+          <LogOut size={16} /> Logout
+        </button>
+      </motion.div></>
   );
 };
 
