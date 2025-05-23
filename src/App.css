@@ -348,6 +348,14 @@ body {
   text-align: center;
   font-size: 0.8rem;
   color: #666;
+   width: 100%;
+  padding: 8px 16px; /* uniform padding */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .footer-links {

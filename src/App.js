@@ -246,7 +246,24 @@ const LandingPage = ({ onVerifyId, onLogout }) => {
         <button className="logout-button" onClick={onLogout}>
           <LogOut size={16} /> Logout
         </button>
-      </motion.div></>
+
+      </motion.div>
+
+      <footer className="footer">
+        <div className="footer-links">
+          <a href="https://www.capitalone.com/help-center/contact-us/" className="footer-link">Contact Us</a>
+          <a href="https://www.capitalone.com/digital/disclosures/" className="footer-link">Legal</a>
+          <a href="https://www.capitalone.com/privacy" className="footer-link">Privacy</a>
+          <a href="https://www.capitalone.com/digital/identity-protection/" className="footer-link">Security</a>
+          <a href="https://www.capitalone.com/digital/corporate-terms/" className="footer-link">Terms & Conditions</a>
+          <a href="https://www.capitalone.com/accessibility/" className="footer-link">Accessibility</a>
+        </div>
+        <div className="footer-logos">
+          <img src={fdicLogo} alt="FDIC Logo" className="footer-logo" />
+          <img src={houseLogo} alt="Equal Housing Lender Logo" className="footer-logo" />
+        </div>
+      </footer>
+      </>
   );
 };
 
